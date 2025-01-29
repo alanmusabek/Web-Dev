@@ -1,0 +1,134 @@
+body {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content:center;
+    align-items: center;
+}
+
+.form {
+    height: 100%;
+    width: 325px;
+}
+
+form {
+    display:grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+}
+
+form h1 {
+    text-align: center;
+    margin: 50px;
+}
+
+form input {
+    width: 250px;
+    height: 30px;
+}
+
+#login {
+    margin-bottom: 10px;
+}
+
+#password {
+    margin-bottom: 15px;
+}
+#submit {
+    background-color: #4bb4f8;
+    color: white;
+    border: 0;
+    height: 30px;
+}
+#or {
+    display:grid;
+    grid-template-columns:40% 20% 40%;
+    margin: 20px 0;
+}
+
+#or p {
+    text-align: center;
+    font-size: 13px;
+    margin: 4px;
+}
+
+#or span {
+    margin-top: 10px;
+    height: 0.1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+}
+
+.enter-facebook {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.no-registration {
+    display:grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 5px;
+    font-size: 13px;
+    height: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+.mobile-app {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-app h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight:normal;
+}
+.mobile-app a {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 75%;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    margin: 5px;
+    font-size: 12px;
+}
+.languages select{
+    background-color: white;
+    border: 0;
+}
+.languages {
+    font-size: 15px;
+    margin: 20px;
+    text-align: center;
+}
