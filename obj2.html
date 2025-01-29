@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Objective Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:wght@600&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2C3E50 0%, #FD746C 100%);
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .objective-container {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .objective {
+            font-size: 2.8rem;
+            color: #fff;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .completed {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.8);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: sparkle 1s ease-out;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #45a049;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .success-message {
+            font-size: 5rem;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel Decorative';
+            letter-spacing: 3px;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+            }
+            to {
+                text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+            }
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message" id="successMessage">Good job!</div>
+    <div class="objective-container">
+        <div class="objective" id="objective">Complete Today's Workout Routine</div>
+    </div>
+    <button onclick="completeObjective()">Done</button>
+
+    <script>
+        function completeObjective() {
+            const objective = document.getElementById('objective');
+            objective.classList.add('completed');
+
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+
+            const container = document.querySelector('.objective-container');
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                container.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+
+            const count = 200;
+            const defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+    </script>
+</body>
+</html>

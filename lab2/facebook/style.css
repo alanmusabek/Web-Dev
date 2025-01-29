@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+main {
+    height: 660px;
+    padding: 0;
+    margin: 0;
+    background-color: #f2f4f7;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 100px  ;
+}
+
+.main-info h2{
+    font-weight: normal;
+}
+
+.facebook {
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    color:dodgerblue;
+    font-weight: bold;
+}
+
+main section {
+    width: 350px;
+}
+form {
+    height: 300px;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 100%;
+    justify-content: center;
+}
+
+form input {
+    padding: 7.5px;
+    margin: 15px;
+    padding-left: 10px;
+}
+
+#password {
+    margin-top: 0px;
+}
+
+#submit {
+    margin-top: 0px;
+    background-color: rgb(47, 99, 255);
+    color:white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+form a {
+    margin: 0px 15px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #9d9d9e;
+}
+
+#create-new-account {
+    margin: 15px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#create-new-account button {
+    width: 200px;
+    height: 50px;
+    background-color:#61ce2f;
+    color: white;
+    font-weight:600;
+    font-size: 15px;
+}
+
+.create-page {
+    margin: 15px 0px;
+    text-align: center;
+}
