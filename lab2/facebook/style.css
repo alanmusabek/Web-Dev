@@ -13,26 +13,34 @@ main {
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
-    gap: 100px  ;
+    gap: 50px  ;
 }
 
+.main-info {
+    margin-bottom: 100px;
+}
 .main-info h2{
+    margin: 0px;
+    font-size: 30px;
     font-weight: normal;
 }
 
 .facebook {
     padding: 0;
     margin: 0;
-    font-size: 50px;
+    font-size: 70px;
     color:dodgerblue;
     font-weight: bold;
 }
 
+.authorization {
+    width: 400px;
+}
 main section {
-    width: 350px;
+    width: 500px;
 }
 form {
-    height: 300px;
+    height: 350px;
     display: grid;
     background-color: white;
     grid-template-columns: 100%;
@@ -40,7 +48,7 @@ form {
 }
 
 form input {
-    padding: 7.5px;
+    padding: 10px;
     margin: 15px;
     padding-left: 10px;
 }
@@ -59,7 +67,7 @@ form input {
 
 form a {
     margin: 0px 15px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     text-align: center;
     border-bottom-style: solid;
     border-bottom-width: 1px;
