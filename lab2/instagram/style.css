@@ -38,12 +38,15 @@ form input {
 
 #login {
     margin-bottom: 10px;
+    padding-left: 5px;
 }
 
 #password {
+    padding-left: 5px;
     margin-bottom: 15px;
 }
 #submit {
+    width: 260px;
     background-color: #4bb4f8;
     color: white;
     border: 0;
