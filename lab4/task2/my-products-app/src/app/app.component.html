@@ -1,14 +1,19 @@
-<main class="main">
-  <app-products></app-products>
-</main>
+<!-- app.component.html -->
+<div class="categories">
+  <button 
+    *ngFor="let category of categories" 
+    (click)="selectCategory(category)"
+    [class.active]="category === selectedCategory"
+  >
+    {{ category.name }}
+  </button>
+</div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<app-product-list 
+  *ngIf="selectedCategory"
+  [products]="selectedCategory.products"
+  (like)="handleLike($event)"
+  (remove)="handleRemove($event)"
+></app-product-list>
 
 <router-outlet />

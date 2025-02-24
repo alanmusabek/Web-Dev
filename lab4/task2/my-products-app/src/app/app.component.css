@@ -1,0 +1,48 @@
+.categories {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .categories button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .categories button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* product-list.component.css */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* product-item.component.css */
+  .product-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .actions button {
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
