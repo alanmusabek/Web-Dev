@@ -1,5 +1,5 @@
 // app.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -12,6 +12,8 @@ interface Category {
   products: Product[];
 }
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,7 +21,24 @@ interface Category {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    this.loadLikesFromStorage();
+  }
+  private loadLikesFromStorage(): void {
+    const storedLikes = localStorage.getItem('productLikes');
+    if (storedLikes) {
+      const likesData: { [key: number]: number } = JSON.parse(storedLikes);
+      
+      this.categories.forEach(category => {
+        category.products.forEach(product => {
+          if (likesData[product.id]) {
+            product.likes = likesData[product.id];
+          }
+        });
+      });
+    }
+  }
   title = "my-app"
   categories: Category[] = [
     {
@@ -152,10 +171,20 @@ export class AppComponent {
 
   handleLike(product: Product): void {
     product.likes++;
+    this.updateLocalStorage(product);
   }
+
+  private updateLocalStorage(product: Product): void {
+    const storedLikes = localStorage.getItem('productLikes');
+    const likesData = storedLikes ? JSON.parse(storedLikes) : {};
+    likesData[product.id] = product.likes;
+    localStorage.setItem('productLikes', JSON.stringify(likesData));
+  } 
 
   handleRemove(product: Product): void {
     if (!this.selectedCategory) return;
     this.selectedCategory.products = this.selectedCategory.products.filter(p => p.id !== product.id);
   }
+
+
 }
