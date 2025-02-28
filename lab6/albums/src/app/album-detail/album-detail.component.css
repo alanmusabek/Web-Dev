@@ -1,0 +1,65 @@
+/* album-detail.component.css */
+.detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .detail-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .detail-title {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  .form-group {
+    margin-bottom: 2rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .save-btn {
+    background: var(--success-color);
+    color: white;
+  }
+  
+  .save-btn:disabled {
+    background: #7f8c8d;
+    cursor: not-allowed;
+  }
+  
+  .return-btn {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .photos-link {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
