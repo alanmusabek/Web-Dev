@@ -8,7 +8,6 @@ export class AlbumsService {
   public storageKey = 'albumEdits';
   constructor(private http: HttpClient) {}
 
-    // Get all albums with merged edits
     getAlbums(): Observable<any[]> {
       return this.http.get<any[]>(`${this.baseUrl}/albums`).pipe(
         mergeMap(apiAlbums => {
@@ -21,7 +20,6 @@ export class AlbumsService {
       );
     }
   
-    // Get single album with edits
     getAlbum(id: number): Observable<any> {
       return this.http.get<any>(`${this.baseUrl}/albums/${id}`).pipe(
         map(album => {
@@ -34,14 +32,12 @@ export class AlbumsService {
       );
     }
   
-    // Update album with local storage save
     updateAlbum(id: number, newTitle: string): Observable<any> {
       this.saveEdit(id, newTitle);
       return this.http.put<any>(`${this.baseUrl}/albums/${id}`, {
         title: newTitle
       }).pipe(
         tap(() => {
-          // Update local data cache
           const edits = this.getEdits();
           edits[id] = newTitle;
           localStorage.setItem(this.storageKey, JSON.stringify(edits));

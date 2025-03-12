@@ -39,7 +39,6 @@ export class AlbumDetailComponent implements OnInit {
   saveChanges() {
     this.service.updateAlbum(this.album.id, this.editedTitle).subscribe({
       next: () => {
-        // Force reload parent list
         this.service.getAlbums().subscribe();
         this.album.title = this.editedTitle;
       },
