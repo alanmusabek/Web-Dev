@@ -5,6 +5,7 @@ from .views import (
     CategoryProducts
 )
 
+# ссылки
 urlpatterns = [
     path('products/', ProductList.as_view(), name='product-list'),
     path('products/<int:id>/', ProductDetail.as_view(), name='product-detail'),

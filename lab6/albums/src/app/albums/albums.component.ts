@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-albums',
   template: `
     <h2>Albums</h2>
-    <div *ngFor="let album of albums$ | async" class="album">
+    <div *ngFor="let album of albums" class="album">
       <a [routerLink]="['/albums', album.id]">{{ album.title }}</a>
       <button (click)="deleteAlbum(album.id)">Delete</button>
     </div>
@@ -18,24 +18,27 @@ import { RouterModule } from '@angular/router';
 })
 export class AlbumsComponent implements OnInit {
 
+  albums: any[] = [];
+
   constructor(
     private service: AlbumsService,
     private router: Router
   ) {}
 
-  albums$: any;
-
   ngOnInit() {
-    this.albums$ = this.service.getAlbums();
+    this.loadAlbums();
     this.router.navigate(['/albums']);
+  }
+
+  loadAlbums() {
+    this.service.getAlbums().subscribe((albums) => {
+      this.albums = albums;
+    });
   }
 
   deleteAlbum(id: number) {
     this.service.deleteAlbum(id).subscribe(() => {
-      const edits = this.service.getEdits();
-      delete edits[id];
-      localStorage.setItem(this.service.storageKey, JSON.stringify(edits));
-      this.albums$ = this.service.getAlbums();
+      this.albums = this.albums.filter(album => album.id !== id);
     });
   }
 }

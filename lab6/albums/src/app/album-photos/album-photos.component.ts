@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlbumsService } from '../albums.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Add this import
+import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({
